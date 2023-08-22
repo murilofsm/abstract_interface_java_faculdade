@@ -6,6 +6,12 @@ public class MenusUtils {
     public static void cadastroRealizadoComSucesso(){
         System.out.println("\nCadastro realizado com sucesso !!\n");
     }
+<<<<<<< HEAD
+=======
+    public static void cadastroNaoRealizadoComSucesso(){
+        System.out.println("\nCadastro não realizado com sucesso !! Tente novamente !!\n");
+    }
+>>>>>>> origin/master
 
     public static void opcaoInvalida(){
         System.out.println("\nOpção inválida! Tente novamente!!\n");
