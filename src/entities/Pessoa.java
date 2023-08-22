@@ -12,6 +12,7 @@ public abstract class Pessoa implements IExibirInformacao {
     protected Endereco endereco;
 
     public Pessoa() {
+        endereco = new Endereco();
     }
     public String getNome() {
         return nome;
