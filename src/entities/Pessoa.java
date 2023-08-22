@@ -1,5 +1,7 @@
 package entities;
 
+import util.DateUtils;
+
 import java.time.LocalDate;
 
 public abstract class Pessoa implements IExibirInformacao {
@@ -43,7 +45,7 @@ public abstract class Pessoa implements IExibirInformacao {
         this.email = email;
     }
     public int getIdade(){
-        return (int) util.DateUtils.quantidadeAnosEntreDatas(getDataNascimento(), LocalDate.now());
+        return (int) DateUtils.quantidadeAnosEntreDatas(getDataNascimento(), LocalDate.now());
     }
     public Endereco getEndereco() {
         return endereco;
