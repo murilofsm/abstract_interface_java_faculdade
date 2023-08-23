@@ -14,6 +14,15 @@ public abstract class Pessoa implements IExibirInformacao {
     public Pessoa() {
         endereco = new Endereco();
     }
+
+    public Pessoa(String nome, String cpf, LocalDate dataNascimento, String email, Endereco endereco) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+        this.email = email;
+        this.endereco = endereco;
+    }
+
     public String getNome() {
         return nome;
     }

@@ -6,13 +6,14 @@ import util.Input;
 
 import java.util.ArrayList;
 
-public class ControlePessoa {
+public class ControlePessoa implements ICadastro{
 
     protected static ArrayList<Pessoa> listaPessoas = new ArrayList<>();
 
     public static ArrayList<Pessoa> getListaPessoas(){
         return listaPessoas;
     }
+
 
 
     protected static void cadastrarAluno(){
@@ -29,7 +30,10 @@ public class ControlePessoa {
     }
 
     @Override
-    public static void cadastrar(Pessoa pessoa) {
+    public void cadastrar() {
+
+    }
+    public static void cadastrarPessoa(Pessoa pessoa) {
         try{
             setarDados(pessoa);
             listaPessoas.add(pessoa);
@@ -61,6 +65,8 @@ public class ControlePessoa {
             }
         }
     }
+
+
 
     @Override
     public void alterar() {

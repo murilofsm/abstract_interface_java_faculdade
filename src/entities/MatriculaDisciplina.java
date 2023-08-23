@@ -7,12 +7,10 @@ public class MatriculaDisciplina implements IExibirInformacao{
     private int percentualFrequencia;
     private String situacao;
     private Disciplina disciplina;
-    private Professor professor;
     protected Aluno aluno;
 
     public MatriculaDisciplina() {
         disciplina = new Disciplina();
-        professor = new Professor();
         aluno = new Aluno();
     }
 
@@ -23,7 +21,6 @@ public class MatriculaDisciplina implements IExibirInformacao{
         this.percentualFrequencia = percentualFrequencia;
         this.situacao = situacao;
         this.disciplina = disciplina;
-        this.professor = professor;
         this.aluno = aluno;
     }
 
@@ -75,13 +72,7 @@ public class MatriculaDisciplina implements IExibirInformacao{
         this.disciplina = disciplina;
     }
 
-    public Professor getProfessor() {
-        return professor;
-    }
 
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
-    }
 
     public Aluno getAluno() {
         return aluno;
