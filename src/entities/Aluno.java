@@ -1,16 +1,25 @@
 package entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Aluno extends Pessoa {
     protected String ra;
-    protected MatriculaDisciplina matriculaDisciplina;
+    protected ArrayList<MatriculaDisciplina> matriculaDisciplina;
     protected MatriculaCurso matriculaCurso;
     public Aluno(){
-        matriculaDisciplina = new MatriculaDisciplina();
+        matriculaDisciplina = new ArrayList<MatriculaDisciplina>();
         matriculaCurso = new MatriculaCurso();
     }
-    public Aluno(String ra, MatriculaDisciplina matriculaDisciplina, MatriculaCurso matriculaCurso) {
+
+    public Aluno(String ra, ArrayList<MatriculaDisciplina> matriculaDisciplina, MatriculaCurso matriculaCurso) {
+        this.ra = ra;
+        this.matriculaDisciplina = matriculaDisciplina;
+        this.matriculaCurso = matriculaCurso;
+    }
+
+    public Aluno(String nome, String cpf, LocalDate dataNascimento, String email, Endereco endereco, String ra, ArrayList<MatriculaDisciplina> matriculaDisciplina, MatriculaCurso matriculaCurso) {
+        super(nome, cpf, dataNascimento, email, endereco);
         this.ra = ra;
         this.matriculaDisciplina = matriculaDisciplina;
         this.matriculaCurso = matriculaCurso;
@@ -24,11 +33,11 @@ public class Aluno extends Pessoa {
         this.ra = ra;
     }
 
-    public MatriculaDisciplina getMatriculaDisciplina() {
+    public ArrayList<MatriculaDisciplina> getMatriculaDisciplina() {
         return matriculaDisciplina;
     }
 
-    public void setMatriculaDisciplina(MatriculaDisciplina matriculaDisciplina) {
+    public void setMatriculaDisciplina(ArrayList<MatriculaDisciplina> matriculaDisciplina) {
         this.matriculaDisciplina = matriculaDisciplina;
     }
 

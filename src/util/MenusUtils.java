@@ -20,10 +20,24 @@ public class MenusUtils {
     public static void remocaoSucesso(){
         System.out.println("\nRemoção ocorrida com sucesso !!\n");
     }
+    public static void alteracaoSucesso(){
+        System.out.println("\nAlteração ocorrida com sucesso !!\n");
+    }
+    public static void operacaoCanceladaComSucesso(){
+        System.out.println("\nOperação cancelada com sucesso !!\n");
+    }
+    public static void erroRemocao(){
+        System.out.println("\nOcorreu um erro na remoção !!\n");
+    }
+    public static void erroAlteracao(){
+        System.out.println("\nOcorreu um erro na alteracao !!\n");
+    }
     public static void pularLinha(){
         System.out.println();
     }
     public static boolean confirmacaoSim(String resp){
         return resp.equalsIgnoreCase("sim") || resp.equalsIgnoreCase("s");
     }
+
+
 }

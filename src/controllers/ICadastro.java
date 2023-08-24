@@ -1,4 +1,4 @@
-package entities;
+package controllers;
 
 public interface ICadastro {
     public void cadastrar();

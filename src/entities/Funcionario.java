@@ -23,6 +23,8 @@ public class Funcionario extends Pessoa{
         this.cargo = cargo;
     }
 
+
+
     public String getCtps() {
         return ctps;
     }

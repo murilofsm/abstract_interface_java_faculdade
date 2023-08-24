@@ -6,7 +6,7 @@ import util.Input;
 
 import java.util.ArrayList;
 
-public class ControlePessoa implements ICadastro{
+public class ControlePessoa {
 
     protected static ArrayList<Pessoa> listaPessoas = new ArrayList<>();
 
@@ -14,7 +14,7 @@ public class ControlePessoa implements ICadastro{
         return listaPessoas;
     }
 
-
+/*
 
     protected static void cadastrarAluno(){
         cadastrar(new Aluno());
@@ -57,11 +57,11 @@ public class ControlePessoa implements ICadastro{
             ControleAluno.setarDados();
         } else if (pessoa instanceof Funcionario){
             if (pessoa instanceof FuncionarioTercerizado){
-
+                ControleFuncionarioTercerizado.setarDados(pessoa);
             }else if (pessoa instanceof Professor){
-
+                System.out.println("a");
             }else{
-
+                System.out.println("b");
             }
         }
     }
@@ -87,4 +87,7 @@ public class ControlePessoa implements ICadastro{
     public void listar() {
 
     }
+
+    */
+
 }
