@@ -1,7 +1,5 @@
 package entities;
 
-import controllers.IExibirInformacao;
-
 import java.util.ArrayList;
 
 public class Curso implements IExibirInformacao {

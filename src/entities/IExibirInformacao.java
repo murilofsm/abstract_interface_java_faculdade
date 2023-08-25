@@ -1,4 +1,4 @@
-package controllers;
+package entities;
 
 public interface IExibirInformacao {
     public String getInformacoes();

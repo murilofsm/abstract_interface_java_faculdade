@@ -1,6 +1,5 @@
 package entities;
 
-import controllers.IExibirInformacao;
 import util.DateUtils;
 
 import java.time.LocalDate;

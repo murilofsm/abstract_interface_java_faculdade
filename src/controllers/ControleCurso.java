@@ -10,14 +10,18 @@ import java.util.ArrayList;
 
 public class ControleCurso implements ICadastro {
 
-    private ArrayList<Curso> listaCursos = new ArrayList<>();
-    public ArrayList<Curso> getListaCursos(){
+    private static ArrayList<Curso> listaCursos = new ArrayList<>();
+    public static ArrayList<Curso> getListaCursos(){
         return listaCursos;
     }
-    public static void menuControleCurso(){
+    public static void getMenuCurso(){
+        menuControleCurso();
+    }
+
+    private void menuControleCurso(){
         int op;
 
-       /* do{
+        do{
             op = Menus.selecionarOpcaoMenuCadastro("Curso");
             switch (op){
                 case 1 ->
@@ -29,9 +33,9 @@ public class ControleCurso implements ICadastro {
                 case 4 ->
                     remover();
                 case 5 ->
-                    listar();
+                    listar(listaCursos);
             }
-        }while(op != 0);*/
+        }while(op != 0);
     }
     @Override
     public void cadastrar() {
@@ -43,6 +47,7 @@ public class ControleCurso implements ICadastro {
             MenusUtils.cadastroNaoRealizadoComSucesso();
         }
     }
+
 
     @Override
     public void alterar() {
@@ -89,16 +94,65 @@ public class ControleCurso implements ICadastro {
     }
     @Override
     public void pesquisar() {
-
+        pesquisarCurso();
     }
+    private static void pesquisarCurso(){
+        System.out.println("Insira o nome do Curso que deseja Buscar: ");
+        String dadoBusca = Input.nextLine();
+        ArrayList<Curso> resultBusca = pesquisaContains(dadoBusca);
+        if(resultBusca.isEmpty()){
+            listar(resultBusca);
+        }
+    }
+    protected static ArrayList<Curso> pesquisaContains(String dadoBusca){
+        ArrayList<Curso> result = new ArrayList<>();
 
+        for (Curso listaCurso : getListaCursos()) {
+            if(listaCurso.getNome().toLowerCase().contains(dadoBusca)){
+                result.add(listaCurso);
+            }
+        }
+
+        return result;
+    }
+    protected static Curso pesquisaEquals(String dadoBusca){
+        for (Curso listaCurso : getListaCursos()) {
+            if (listaCurso.getNome().toLowerCase().equals(dadoBusca)){
+                return listaCurso;
+            }
+        }
+        return null;
+    }
     @Override
     public void remover() {
-
+        realizarRemocao();
     }
-
+    private static void realizarRemocao(){
+        System.out.println("Insira o nome do curso que deseja remover: ");
+        String dadoBusca = Input.nextLine();
+        Curso cursoRemocao = pesquisaEquals(dadoBusca);
+        if (cursoRemocao != null){
+            try{
+                System.out.println("Deseja realmente removar o curso: " + cursoRemocao.getInformacoes());
+                String resp = Input.nextLine();
+                if(MenusUtils.confirmacaoSim(resp)){
+                    getListaCursos().remove(cursoRemocao);
+                    MenusUtils.remocaoSucesso();
+                }else {
+                    MenusUtils.operacaoCanceladaComSucesso();
+                }
+            }catch (Exception ex){
+                MenusUtils.erroRemocao();
+            }
+        }
+    }
     @Override
     public void listar() {
-
+        listar(getListaCursos());
+    }
+    private static void listar(ArrayList<Curso> listaCursos) {
+        for (Curso listaCurso : listaCursos) {
+            listaCurso.exibirInformacoes();
+        }
     }
 }

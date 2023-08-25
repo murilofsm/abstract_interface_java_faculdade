@@ -1,7 +1,5 @@
 package entities;
 
-import controllers.IExibirInformacao;
-
 public class MatriculaDisciplina implements IExibirInformacao {
     private int ano;
     private int semestre;

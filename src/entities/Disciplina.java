@@ -1,7 +1,5 @@
 package entities;
 
-import controllers.IExibirInformacao;
-
 public class Disciplina implements IExibirInformacao {
     private String nome;
     private int cargaHoraria;
