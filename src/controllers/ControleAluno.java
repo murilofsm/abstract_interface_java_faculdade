@@ -11,7 +11,13 @@ public class ControleAluno extends ControlePessoa{
 
 
 
+     public ControleAluno(){
 
+     }
+
+    public void alterar(){
+
+    }
     protected static void setarDados(Aluno aluno){
 
         System.out.print("RA: ");
@@ -54,7 +60,18 @@ public class ControleAluno extends ControlePessoa{
 
     }
 
-    public static ArrayList<Aluno> listaDeAlunos() {
+
+    public static ArrayList<Pessoa> getListaPessoaAlunos(){
+         ArrayList<Pessoa> result = new ArrayList<>();
+         for (Pessoa p : getListaPessoas()){
+             if (p instanceof Aluno){
+                 result.add(p);
+             }
+         }
+         return result;
+    }
+
+    public static ArrayList<Aluno> getListaDeAlunos() {
         return (ArrayList<Aluno>) listaPessoas.stream().filter(e -> e.getClass() == Aluno.class).map(a -> (Aluno) a).collect(Collectors.toList());
     }
 

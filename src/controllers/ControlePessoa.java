@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class ControlePessoa implements ICadastro{
+    ControleAluno controleAluno = new ControleAluno();
 
     protected static ArrayList<Pessoa> listaPessoas = new ArrayList<>();
 
@@ -50,6 +51,7 @@ public class ControlePessoa implements ICadastro{
         cadastrar(new Professor());
     }
 
+
     @Override
     public void cadastrar() {
         boolean travaTela = true;
@@ -58,6 +60,7 @@ public class ControlePessoa implements ICadastro{
             System.out.println(" 2 - Cadastrar Funcionario: ");
             System.out.println(" 3 - Cadastrar Funcionario Tercerizado: ");
             System.out.println(" 4 - Cadastrar Funcionario Professor: ");
+            System.out.println(" 0 - VOLTAR");
             System.out.print("R:");
             switch (Input.nextInt()){
                 case 1 -> {
@@ -131,6 +134,77 @@ public class ControlePessoa implements ICadastro{
             MenusUtils.usuarioNaoEncontrado();
         }
     }
+
+    public void alterar(){
+        boolean travaTela = true;
+
+        String tipoAlterar = " ";
+
+        do{
+            System.out.println(" 1 - Alterar Aluno: ");
+            System.out.println(" 2 - Alterar Funcionario: ");
+            System.out.println(" 3 - Alterar Funcionario Tercerizado: ");
+            System.out.println(" 4 - Alterar Professor: ");
+            System.out.println(" 0 - VOLTAR");
+            System.out.print("R:");
+            switch (Input.nextInt()){
+                case 1 -> {
+                    travaTela = false;
+                    tipoAlterar = "Aluno";
+                }
+                case 2 -> {
+                    travaTela = false;
+                    tipoAlterar = "Funcionario";
+                }
+
+                case 3 ->{
+                    travaTela = false;
+                    tipoAlterar = "Funcionario Tercerizado";
+                }
+
+                case 4 ->{
+                    travaTela = false;
+                    tipoAlterar = "Professor";
+                }
+                default -> System.out.println("\nValor errado !! Tente novamente !!\n");
+            }
+        }while (travaTela);
+
+        alterar(tipoAlterar);
+
+    }
+
+    private void alterar(String tipoAlterar){
+        ArrayList<Pessoa> listaAlterar = new ArrayList<>();
+        Pessoa pessoaAlt;
+        System.out.println("Insira o nome/cpf do " + tipoAlterar + " que deseja ALTERAR: " );
+        String resp = Input.nextLine();
+
+        pessoaAlt = pesquisaEquals(resp);
+
+
+
+        switch (tipoAlterar){
+            case "Aluno" ->{
+                System.out.println("O que deseja alterar no aluno? ");
+
+            }
+            case "Funcionario" ->{
+                System.out.println("O que deseja alterar no ");
+            }
+            case "Funcionario Tercerizado" ->{
+
+            }
+            case "Professor" ->{
+
+            }
+
+        }
+
+    }
+
+
+
 
     @Override
     public void pesquisar() {

@@ -10,9 +10,19 @@ import java.util.stream.Collectors;
 
 public class ControleProfessor extends ControlePessoa{
 
+
+    public ControleProfessor(){
+
+    }
+
+    public void alterar(){
+
+    }
+
+
     protected static void setarDados(Professor prof){
         ControleFuncionario.setarDados(prof);
-        System.out.println("Formacao: ");
+        System.out.print("Formacao: ");
         prof.setFormacao(Input.nextLine());
     }
 

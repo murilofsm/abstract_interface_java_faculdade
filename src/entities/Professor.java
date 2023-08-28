@@ -22,4 +22,11 @@ public class Professor extends Funcionario{
     public void setCurso(Curso curso) {
         this.curso = curso;
     }
+
+    public String getInformacoes(){
+        return super.getInformacoes() + "Formação: " + formacao + " | Curso: " + curso.getNome();
+    }
+    public void exibirInformacoes(){
+        System.out.println(super.getInformacoes() + "Formação: " + formacao + " | Curso: " + curso.getNome());
+    }
 }
