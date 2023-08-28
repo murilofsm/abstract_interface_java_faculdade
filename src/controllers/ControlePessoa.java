@@ -244,6 +244,11 @@ public class ControlePessoa implements ICadastro{
             lista.sort(Collections.reverseOrder());
         }
     }
+    public void listar(ArrayList<Pessoa> listaPessoas){
+        for (Pessoa p : listaPessoas){
+            p.exibirInformacoes();
+        }
 
+    }
 
 }
