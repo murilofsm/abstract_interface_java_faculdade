@@ -14,13 +14,13 @@ public class ControleCurso implements ICadastro {
     public static ArrayList<Curso> getListaCursos(){
         return listaCursos;
     }
-    public static void getMenuCurso(){
-        menuControleCurso();
+
+    public ControleCurso(){
+
     }
 
-    private void menuControleCurso(){
+    public void menuControleCurso(){
         int op;
-
         do{
             op = Menus.selecionarOpcaoMenuCadastro("Curso");
             switch (op){
@@ -39,19 +39,24 @@ public class ControleCurso implements ICadastro {
     }
     @Override
     public void cadastrar() {
+        if (ControleDisciplina.getListaDisciplinas().isEmpty()){
+            System.out.println("\nCADASTRE ALGUMA DISCIPLINA ANTES !!!\n");
+            return;
+        }
+        if (ControleProfessor.listaDeProfessores().isEmpty()){
+            System.out.println("\nCADASTRE ALGUM PROFESSOR ANTES !!!\n");
+            return;
+        }
+
+
         try{
             Curso curso = new Curso();
             setarDados(curso);
+            listaCursos.add(curso);
             MenusUtils.cadastroRealizadoComSucesso();
         }catch(Exception ex){
             MenusUtils.cadastroNaoRealizadoComSucesso();
         }
-    }
-
-
-    @Override
-    public void alterar() {
-
     }
 
     protected void setarDados(Curso curso){
@@ -61,10 +66,35 @@ public class ControleCurso implements ICadastro {
         curso.setCargaHoraria(Input.nextInt());
         System.out.print("Qtd semestres: ");
         curso.setQtdSemestres(Input.nextInt());
-        System.out.print("Coordenador: ");
-        curso.setCoordenador(new Professor());// sla
+
+
+        System.out.println("Insira o nome/cpf do Coordenador: ");
+        String coordPesquisa = Input.nextLine();
+
+        Professor coord = (Professor) ControlePessoa.pesquisaEquals(coordPesquisa);
+
+        if(coord != null){
+            curso.setCoordenador(coord);
+        }else{
+            System.out.println("Parabéns, não lembra nem o nome do professor !!");
+        }
         setarDisciplinasCurso(curso);
 
+
+    }
+    @Override
+    public void alterar() {
+        System.out.println("Insira o nome do Curso que deseja alterar: ");
+        String nomeCurso = Input.nextLine();
+
+        Curso cursoAlterar = pesquisaEquals(nomeCurso);
+
+        if(cursoAlterar != null){
+            setarDados(cursoAlterar);
+            System.out.println("\nCurso alterado com sucesso !!\n");
+        }else{
+            System.out.println("\nCurso não foi encontrado !!\n");
+        }
 
     }
 

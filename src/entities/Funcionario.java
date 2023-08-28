@@ -51,11 +51,12 @@ public class Funcionario extends Pessoa{
 
     @Override
     public String getInformacoes() {
-        return null;
+
+        return super.getInformacoes() + " | CTPS: " + ctps + " Salário: " + salario + "Cargo: " + cargo;
     }
 
     @Override
     public void exibirInformacoes() {
-
+        System.out.println(super.getInformacoes() + " | CTPS: " + ctps + " Salário: " + salario + "Cargo: " + cargo);
     }
 }

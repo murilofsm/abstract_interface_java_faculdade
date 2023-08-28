@@ -8,17 +8,28 @@ public class FuncionarioTercerizado extends Funcionario{
     public FuncionarioTercerizado(){
 
     }
-    public FuncionarioTercerizado(String nome, String cpf, LocalDate dataNascimento, String email, String ctps, double salario, String cargo, String empresaTercerizada) {
-        super(nome, cpf, dataNascimento, email, ctps, salario, cargo);
-        this.empresaTercerizada = empresaTercerizada;
-    }
+
 
     public String getEmpresaTercerizada() {
-        return empresaTercerizada;
+
+        return this.empresaTercerizada;
     }
 
     public void setEmpresaTercerizada(String empresaTercerizada) {
         this.empresaTercerizada = empresaTercerizada;
+    }
+
+
+
+    @Override
+    public String getInformacoes() {
+
+        return super.getInformacoes() + " | Empresa Tercerizada: " + empresaTercerizada;
+    }
+
+    @Override
+    public void exibirInformacoes() {
+        System.out.println(super.getInformacoes() + " | Empresa Tercerizada: " + empresaTercerizada);
     }
 
 }

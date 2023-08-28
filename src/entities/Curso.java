@@ -1,5 +1,7 @@
 package entities;
 
+import controllers.ControleMatriculaCurso;
+
 import java.util.ArrayList;
 
 public class Curso implements IExibirInformacao {
@@ -8,9 +10,11 @@ public class Curso implements IExibirInformacao {
     private int qtdSemestres;
     Professor coordenador;
     private ArrayList<Disciplina> listaDisciplinas;
+    private ArrayList<MatriculaCurso> matriculaCurso;
 
     public Curso() {
         listaDisciplinas = new ArrayList<>();
+        matriculaCurso = new ArrayList<>();
     }
 
     public Curso(String nome, int cargaHoraria, int qtdSemestres, Professor coordenador, ArrayList<Disciplina> listaDisciplinas) {
@@ -60,14 +64,26 @@ public class Curso implements IExibirInformacao {
     public void setListaDisciplinas(ArrayList<Disciplina> listaDisciplinas) {
         this.listaDisciplinas = listaDisciplinas;
     }
+    public ArrayList<MatriculaCurso> getMatriculaCurso() {
+        return matriculaCurso;
+    }
 
+    public void setMatriculaCurso(ArrayList<MatriculaCurso> matriculaCurso) {
+        this.matriculaCurso = matriculaCurso;
+    }
+
+    public int getQndAlunosMatriculados(){
+        return ControleMatriculaCurso.calcAlunosCurso(matriculaCurso);
+    }
     @Override
     public String getInformacoes() {
-        return null;
+        return "Nome: " + nome + " | Carga Horária: " + cargaHoraria + " | Quantidade Semestre: " +
+                qtdSemestres + " | Coordenador: " + coordenador.getNome() + " | Quantidade alunos: " + getQndAlunosMatriculados();
     }
 
     @Override
     public void exibirInformacoes() {
-
+        System.out.println("Nome: " + nome + " | Carga Horária: " + cargaHoraria + " | Quantidade Semestre: " +
+                qtdSemestres + " | Coordenador: " + coordenador.getNome() + " | Quantidade alunos: " + getQndAlunosMatriculados());
     }
 }

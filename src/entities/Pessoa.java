@@ -4,7 +4,7 @@ import util.DateUtils;
 
 import java.time.LocalDate;
 
-public abstract class Pessoa implements IExibirInformacao {
+public abstract class Pessoa implements IExibirInformacao, Comparable<Pessoa>{
     protected String nome;
     protected String cpf;
     protected LocalDate dataNascimento;
@@ -63,5 +63,15 @@ public abstract class Pessoa implements IExibirInformacao {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+    @Override
+    public int compareTo(Pessoa o) {
+        return this.nome.compareToIgnoreCase(o.getNome());
+    }
+    public String getInformacoes(){
+        return " Nome: " + nome + " | CPF: " + cpf + " | Data Nascimento: " + dataNascimento + "| Email: " + email + " | Idade: " + getIdade();
+    }
+    public void exibirInformacoes(){
+        System.out.println("\" Nome: \" + nome + \" | CPF: \" + cpf + \" | Data Nascimento: \" + dataNascimento + \"| Email: \" + email + \" | Idade: \" + getIdade()");
     }
 }

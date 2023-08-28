@@ -7,11 +7,33 @@ import util.MenusUtils;
 import java.util.ArrayList;
 
 public class ControleDisciplina implements ICadastro {
-    protected static ArrayList<Disciplina> listaDisciplinas = new ArrayList<>();
+    private static ArrayList<Disciplina> listaDisciplinas = new ArrayList<>();
 
     public static ArrayList<Disciplina> getListaDisciplinas(){
         return listaDisciplinas;
     }
+
+    public void menuControleDisciplina(){
+        int op;
+        do{
+            op = Menus.selecionarOpcaoMenuCadastro("Disciplina");
+            switch (op){
+                case 1 ->
+                        cadastrar();
+                case 2 ->
+                        pesquisar();
+                case 3 ->
+                        alterar();
+                case 4 ->
+                        remover();
+                case 5 ->
+                        listar(getListaDisciplinas());
+            }
+        }while(op != 0);
+    }
+
+
+
 
     protected static void setarDados(Disciplina disciplina){
         System.out.print("Nome disciplina: ");
@@ -105,11 +127,9 @@ public class ControleDisciplina implements ICadastro {
 
     @Override
     public void listar() {
-        for(Disciplina disciplina : getListaDisciplinas()){
-            disciplina.exibirInformacoes();
-        }
+        listar(getListaDisciplinas());
     }
-    public void listar(ArrayList<Disciplina> listaDisciplinas) {
+    public static void listar(ArrayList<Disciplina> listaDisciplinas) {
         for(Disciplina disciplina : listaDisciplinas){
             disciplina.exibirInformacoes();
         }

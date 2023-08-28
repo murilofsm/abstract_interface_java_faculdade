@@ -1,11 +1,15 @@
 package entities;
 
+import java.util.ArrayList;
+
 public class Disciplina implements IExibirInformacao {
     private String nome;
     private int cargaHoraria;
     private int semestre;
+    ArrayList<MatriculaDisciplina> matriculaDisciplinas;
 
     public Disciplina() {
+        matriculaDisciplinas = new ArrayList<>();
     }
 
     public String getNome() {
@@ -34,11 +38,11 @@ public class Disciplina implements IExibirInformacao {
 
     @Override
     public String getInformacoes() {
-        return null;
+        return "Nome: " + nome + " | Carga Horária: " + cargaHoraria + " | Semestre: " + semestre;
     }
 
     @Override
     public void exibirInformacoes() {
-
+        System.out.println("Nome: " + nome + " | Carga Horária: " + cargaHoraria + " | Semestre: " + semestre);
     }
 }

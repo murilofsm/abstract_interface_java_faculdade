@@ -1,6 +1,6 @@
 package entities;
 
-public class Endereco {
+public class Endereco implements IExibirInformacao{
     protected String cidade;
     protected String rua;
     protected String numero;
@@ -38,4 +38,13 @@ public class Endereco {
         this.numero = numero;
     }
 
+    @Override
+    public String getInformacoes() {
+        return " Cidade: " + cidade + " Rua: " + rua + " Número: " + numero;
+    }
+
+    @Override
+    public void exibirInformacoes() {
+        System.out.println(" Cidade: " + cidade + " Rua: " + rua + " Número: " + numero);
+    }
 }

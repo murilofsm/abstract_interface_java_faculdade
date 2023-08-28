@@ -1,5 +1,7 @@
 package entities;
 
+import controllers.ControleDisciplina;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -10,19 +12,6 @@ public class Aluno extends Pessoa {
     public Aluno(){
         matriculaDisciplina = new ArrayList<MatriculaDisciplina>();
         matriculaCurso = new MatriculaCurso();
-    }
-
-    public Aluno(String ra, ArrayList<MatriculaDisciplina> matriculaDisciplina, MatriculaCurso matriculaCurso) {
-        this.ra = ra;
-        this.matriculaDisciplina = matriculaDisciplina;
-        this.matriculaCurso = matriculaCurso;
-    }
-
-    public Aluno(String nome, String cpf, LocalDate dataNascimento, String email, Endereco endereco, String ra, ArrayList<MatriculaDisciplina> matriculaDisciplina, MatriculaCurso matriculaCurso) {
-        super(nome, cpf, dataNascimento, email, endereco);
-        this.ra = ra;
-        this.matriculaDisciplina = matriculaDisciplina;
-        this.matriculaCurso = matriculaCurso;
     }
 
     public String getRa() {
@@ -51,11 +40,12 @@ public class Aluno extends Pessoa {
 
     @Override
     public String getInformacoes() {
-        return null;
+
+        return super.getInformacoes() + " RA: " + ra + "| Curso: " + matriculaCurso.getCurso().getNome();
     }
 
     @Override
     public void exibirInformacoes() {
-
+        System.out.println(super.getInformacoes() + " RA: " + ra + "| Curso: " + matriculaCurso.getCurso().getNome());
     }
 }
